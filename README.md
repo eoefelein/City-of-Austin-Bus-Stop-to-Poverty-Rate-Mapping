@@ -1,12 +1,13 @@
 # Project_1
 # CapMetro Bus Stops vs. Service Area Population Demographics Analysis
 
-We began this project hoping to better understand the relationship between the poverty rate of an area, and the public transport quality of service (as measured by number of bus stops) to that area. We wanted to better understand how bus stops are distributed throughout the city and hypothesized that as the need is greater, or poverty rate is higher, in a given area, we would see a higher bus stop count in that area. We wanted to see what factors seemed to be taken into consideration in the configuration of our public bus route system.
+This project aimed to explore the relationship between area-level poverty rates and the quality of public transportation service, as measured by the number of bus stops. Our goal was to understand how bus stops are distributed across the city and to test the hypothesis that areas with higher poverty rates would have greater access to bus stops. Additionally, we sought to identify the factors considered in the design and configuration of the city’s public bus network.
 
-We pulled down Population and Poverty Count from the Census API. This data came segmented by zip code. We then calculated the Poverty Rate by zip code, by dividing the total population by the count of those below the poverty line. 
+We pulled down Population and Poverty Count from the Census API. This data came segmented by zip code. We then calculated the Poverty Rate by zip code, by dividing the total population by the count of those below the poverty line.
+
 The data pulled down from the CapMetro site gave us the latitude and longitude of each bus stop, but did not return zip codes! In order to attach zip codes, and thereby segment our data in a more meaningful way, we reverse geocoded the latitude and longitude of each bus stop to attach the zip codes to each bus stop.
 
-We combined the data from each of these sources into one master dataset, from which we pulled the information necessary to construct the plots shown.
+We consolidated data from all sources into a single master dataset, from which we extracted the information needed to create the plots presented.
 
 # CapMetro Bus Stops with Poverty Rate Contour Map
 To construct the first plot, we interpolated the latitude & longitude data corresponding to each bus stop location. In order to work with these coordinates, we converted them to NumPy Arrays with Linspace. Linspace has essentially differentiated our numbers evenly and in such a way as to optimize the data for use within our contour map. The contour map requires that x, y and z are evenly spaced (the same length) as a pre-requisite in building the function. The ‘cubic’ here corresponds to Lat, Long & Poverty Rate which will serve as our x,y & z variables. These will be taken in as arguments for our contour plot. 
